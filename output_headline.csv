@@ -1,0 +1,2 @@
+base_npv_inr_mn,base_project_irr,base_equity_irr,base_min_dscr,n_simulations,p_npv_negative,p_irr_below_wacc,p_covenant_breach,npv_p5_inr_mn,npv_p95_inr_mn,top_driver,top_driver_corr
+2310,0.1526,0.2059,0.88,10000,0.0834,0.0482,1.0,-400,5740,Traffic CAGR,0.804

@@ -1,0 +1,71 @@
+==========================================================================
+BASE CASE (should reconcile to the Excel model)
+==========================================================================
+  NPV @ WACC            : INR 2,310 mn
+  Project IRR           : 15.26%
+  Equity IRR            : 20.59%
+  Minimum DSCR          : 0.88x
+  Years breaching 1.20x : 3
+
+==========================================================================
+MONTE CARLO — 10,000 simulations
+==========================================================================
+Input distributions:
+  Traffic CAGR    ~ N(5.5%, 1.8%)   -> P5 2.49% / P95 8.46%
+  Toll escalation ~ N(4.0%, 1.0%)   -> P5 2.38% / P95 5.70%
+  Capex overrun   ~ LogN(med 5%)    -> P5 -10.00% / P95 32.79%
+  O&M inflation   ~ N(5.5%, 1.2%)   -> P5 3.50% / P95 7.47%
+
+RESULTS
+--------------------------------------------------------------------------
+  Mean NPV                        : INR 2,386 mn
+  Median NPV                      : INR 2,219 mn
+  P(NPV < 0)                      : 8.3%
+  P(Project IRR < WACC of 11%)    : 4.8%
+  P(any DSCR covenant breach)     : 100.0%
+
+  Percentile        NPV (INR mn)   Project IRR    Min DSCR
+  ------------------------------------------------------
+  P5                        -400       11.00%       0.69x
+  P25                      1,110       13.48%       0.80x
+  P50                      2,219       15.27%       0.87x
+  P75                      3,478       17.11%       0.96x
+  P95                      5,740       19.63%       1.02x
+
+  Downside (P5) NPV               : INR -400 mn
+  Base-case NPV                   : INR 2,310 mn
+  Value at risk vs base (P5)      : INR 2,711 mn
+
+DRIVER SENSITIVITY (correlation of input to NPV)
+--------------------------------------------------------------------------
+  Traffic CAGR        0.804  ################################
+  Toll escalation     0.448  #################
+  Capex overrun      -0.321  ############
+  O&M inflation      -0.148  #####
+
+SENSITIVITY GRID — Project IRR  (rows: traffic CAGR, cols: toll escalation)
+--------------------------------------------------------------------------
+                  2.0%      3.0%      4.0%      5.0%      6.0%
+        3.5%    10.11%    11.53%    12.83%    14.07%    15.25%
+        4.5%    11.51%    12.82%    14.07%    15.26%    16.41%
+        5.5%    12.79%    14.05%    15.26%    16.42%    17.55%
+        6.5%    14.01%    15.23%    16.40%    17.55%    18.67%
+        7.5%    15.18%    16.37%    17.52%    18.65%    19.76%
+
+  (WACC hurdle = 11% — cells below this destroy value)
+
+==========================================================================
+HEADLINE NUMBERS FOR RESUME
+==========================================================================
+  base_npv_inr_mn       : 2310
+  base_project_irr      : 0.1526
+  base_equity_irr       : 0.2059
+  base_min_dscr         : 0.88
+  n_simulations         : 10000
+  p_npv_negative        : 0.0834
+  p_irr_below_wacc      : 0.0482
+  p_covenant_breach     : 1.0
+  npv_p5_inr_mn         : -400
+  npv_p95_inr_mn        : 5740
+  top_driver            : Traffic CAGR
+  top_driver_corr       : 0.804
